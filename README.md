@@ -1,6 +1,6 @@
 # Cursor Usage + Spending Limit Manager
 
-A simple JavaScript script for the browser console that allows users to manage spending limits and toggle usage-based pricing for AI code editor [Cursor](https://cursor.com/).
+A simple JS script for the browser console that allows users to manage spending limits and toggle usage-based pricing for AI code editor [Cursor](https://cursor.com/).
 
 ## Background
 
