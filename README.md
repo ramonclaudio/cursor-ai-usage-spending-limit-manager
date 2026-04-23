@@ -1,81 +1,47 @@
 # Cursor Usage + Spending Limit Manager
 
-A simple JS script for the browser console that allows users to manage spending limits and toggle usage-based pricing for AI code editor [Cursor](https://cursor.com/).
+Cursor's billing UI had a bug: once you hit the hard cap on your spending limit, the UI wouldn't let you raise it or toggle usage-based pricing. I poked around, found the API call, wrote this one-off patch for the browser console. Would have been a PR if Cursor were open source, or a gist if I'd been thinking practically. Ended up as a repo. Cursor eventually fixed the bug.
 
-## Background
+Browser console script for managing Cursor's spending limit and usage-based pricing.
 
-This script was developed in response to an issue reported with the [Cursor.com](https://cursor.com/) frontend UI, which prevented users from updating their spending limit after hitting a hard cap. This utility allows users to manage their spending limits and toggle usage-based pricing directly from the browser console, providing a temporary solution while waiting for an official update from the Cursor team.
+## Install
 
-## Features
--  Manage spending limits easily.
--  Toggle usage-based pricing as needed.
--  Clear instructions for obtaining the required session token.
--  User-friendly command options for enhanced interaction.
+1. Open browser DevTools (F12)
+2. Paste `main.js` into the console
+3. Get your session token (see below) and initialize
 
-## Getting Started
+## Commands
 
-### Prerequisites
--  A web browser with developer tools (e.g., Chrome, Firefox).
+```javascript
+// Initialize with your session token
+init('your_token_here');
 
-### Installation
-1. Open your browser's console (F12).
-2. Copy and paste the script into the console.
+// Set spending limit (USD)
+setLimit(100);
 
-### Commands
-Here are the available commands you can use after initializing the script:
+// Set limit and disable usage-based pricing
+setLimit(100, true);
 
--  **Initialize the Script**:
-  ```javascript
-  init('your_token_here');
-  ```
-  Replace `'your_token_here'` with your actual session token.
+// Print token instructions
+getToken();
+```
 
--  **Set Spending Limit**:
-  ```javascript
-  setLimit(amount);
-  ```
-  Example: 
-  ```javascript
-  setLimit(100); // Sets the spending limit to $100
-  ```
+## Getting your session token
 
--  **Set Spending Limit with Usage-Based Pricing Disabled**:
-  ```javascript
-  setLimit(amount, true);
-  ```
-  Example:
-  ```javascript
-  setLimit(100, true); // Sets the spending limit to $100 and disables usage-based pricing
-  ```
+### Chromium (Chrome, Edge, Brave, Arc, Dia, Vivaldi, Opera, Helium)
 
--  **Get Token Help**:
-  ```javascript
-  getToken();
-  ```
-  This command will display instructions on how to obtain your session token.
+1. Open DevTools (F12)
+2. Application → Cookies → `cursor.com`
+3. Copy the `WorkosCursorSessionToken` value
+4. Run `init('paste_token_here')`
 
-## How to Get Your Token
-To get your session token, follow these steps:
+### Mozilla (Firefox, Zen, LibreWolf, Floorp)
 
-### For Chromium Based Browsers:
-1. Open DevTools (F12).
-2. Go to Application → Cookies.
-3. Find `cursor.com` → `WorkosCursorSessionToken`.
-4. Copy the Value.
-5. Run: `init('paste_token_here')`.
-
-### For Mozilla Based Browsers:
-1. Open DevTools (F12).
-2. Go to Storage → Cookies.
-3. Find `cursor.com` → `WorkosCursorSessionToken`.
-4. Copy the Value.
-5. Run: `init('paste_token_here')`.
+1. Open DevTools (F12)
+2. Storage → Cookies → `cursor.com`
+3. Copy the `WorkosCursorSessionToken` value
+4. Run `init('paste_token_here')`
 
 ## License
-This project is open-source and available under the [MIT License](LICENSE).
 
-## Contributing
-If you have suggestions for improvements or encounter issues, feel free to open an issue or submit a pull request.
-
-## Acknowledgments
-Made with ❤️ by @ramonclaudio.
+MIT
