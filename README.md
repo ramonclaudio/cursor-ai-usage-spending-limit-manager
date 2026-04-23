@@ -78,4 +78,4 @@ This project is open-source and available under the [MIT License](LICENSE).
 If you have suggestions for improvements or encounter issues, feel free to open an issue or submit a pull request.
 
 ## Acknowledgments
-Made with ❤️ by @RMNCLDYO.
+Made with ❤️ by @Ramon Claudio.
