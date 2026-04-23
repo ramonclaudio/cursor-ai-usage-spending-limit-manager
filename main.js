@@ -3,7 +3,7 @@
 //
 // A simple JS script for console that allows you to update your spending limit and usage-based pricing.
 //
-// Made with ❤️ by @Ramon Claudio
+// Made with ❤️ by @ramonclaudio
 // ====================================================================================================
 
 let sessionToken = null;
@@ -54,7 +54,7 @@ const setLimit = async (amount, disableUsageBased = false) => {
       console.log(`\n🎉 Success! Limit set to $${amount}`);
       console.log();
       console.log("─".repeat(25));
-      console.log(`Made with ❤️ by @Ramon Claudio`);
+      console.log(`Made with ❤️ by @ramonclaudio`);
       console.log("─".repeat(25));
       if (disableUsageBased) console.log("📊 Usage-based pricing disabled");
     } else {
